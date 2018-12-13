@@ -1,0 +1,45 @@
+# Project: constructoroverloading
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = EmployeeDatabase.o DepartmentDatabase.o UniversityDatabase.o HospitalDatabase.o CollegeDatabase.o BankDatabase.o $(RES)
+LINKOBJ  = EmployeeDatabase.o DepartmentDatabase.o UniversityDatabase.o HospitalDatabase.o CollegeDatabase.o BankDatabase.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = constructoroverloading.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before constructoroverloading.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "constructoroverloading.exe" $(LIBS)
+
+EmployeeDatabase.o: EmployeeDatabase.cpp
+	$(CPP) -c EmployeeDatabase.cpp -o EmployeeDatabase.o $(CXXFLAGS)
+
+DepartmentDatabase.o: DepartmentDatabase.cpp
+	$(CPP) -c DepartmentDatabase.cpp -o DepartmentDatabase.o $(CXXFLAGS)
+
+UniversityDatabase.o: UniversityDatabase.cpp
+	$(CPP) -c UniversityDatabase.cpp -o UniversityDatabase.o $(CXXFLAGS)
+
+HospitalDatabase.o: HospitalDatabase.cpp
+	$(CPP) -c HospitalDatabase.cpp -o HospitalDatabase.o $(CXXFLAGS)
+
+CollegeDatabase.o: CollegeDatabase.cpp
+	$(CPP) -c CollegeDatabase.cpp -o CollegeDatabase.o $(CXXFLAGS)
+
+BankDatabase.o: BankDatabase.cpp
+	$(CPP) -c BankDatabase.cpp -o BankDatabase.o $(CXXFLAGS)
